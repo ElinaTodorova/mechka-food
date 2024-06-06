@@ -22,11 +22,10 @@ const add = async (req, res, next) => {
     // Insert the user into the database
 
     const user = await tables.client.readByEmail(dataUser.email);
-
     if (user !== undefined) {
       res.status(400).json("Email déjà utilisé");
     } else {
-      const insertId = await tables.user.create(dataUser);
+      const insertId = await tables.client.create(dataUser);
       res.status(201).json({ insertId });
     }
 
