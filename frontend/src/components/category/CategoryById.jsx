@@ -11,7 +11,7 @@ export default function CategoryById() {
   const idCategory = useParams();
 
   useEffect(() => {
-    fetch(`http://localhost:3310/api/category/${idCategory.id}`)
+    fetch(`${import.meta.env.VITE_BACKEND_URL}/api/category/${idCategory.id}`)
       .then((response) => response.json())
       .then((data) => {
         setCategory(data);
