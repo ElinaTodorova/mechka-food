@@ -5,7 +5,7 @@ import styles from "./RecipeContainer.module.css";
 export default function RecipeContainer() {
   const [recipes, setRecipes] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:3310/api/recipes")
+    fetch(`${import.meta.env.VITE_BACKEND_URL}/api/recipes`)
       .then((response) => response.json())
       .then((data) => setRecipes(data));
   }, []);

@@ -14,7 +14,7 @@ export default function AdminUserCard({
   role,
 }) {
   const handelDeleteUser = (id) => {
-    fetch(`http://localhost:3310/api/user/${id}`, {
+    fetch(`${import.meta.env.VITE_BACKEND_URL}/api/user/${id}`, {
       method: "DELETE",
       credentials: "include",
     })

@@ -6,8 +6,8 @@ CREATE TABLE role(
   roleName VARCHAR (50)
 );
 
-DROP TABLE IF EXISTS user;
-CREATE TABLE user(
+DROP TABLE IF EXISTS client;
+CREATE TABLE client(
   id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
   username VARCHAR(50) NOT NULL,
   firstname VARCHAR(50),
@@ -27,7 +27,7 @@ CREATE TABLE recipe (
   number_persons INT NOT NULL,
   image_url VARCHAR(255),
   user_id INT,
-  CONSTRAINT user_id FOREIGN KEY (user_id) REFERENCES user(id),
+  CONSTRAINT user_id FOREIGN KEY (user_id) REFERENCES client(id),
   category_id INT,
   CONSTRAINT category_id FOREIGN KEY (category_id) REFERENCES category(id)
 );
@@ -55,7 +55,7 @@ CREATE TABLE comment (
   comment VARCHAR(255),
   commentUserId INT,
   CommentRecipeId INT,
-  CONSTRAINT commentUserId FOREIGN KEY (commentUserId) REFERENCES user(id),
+  CONSTRAINT commentUserId FOREIGN KEY (commentUserId) REFERENCES client(id),
   CONSTRAINT CommentRecipeId FOREIGN KEY (CommentRecipeId) REFERENCES recipe(id)
 );
 
@@ -65,7 +65,7 @@ CREATE TABLE favorite (
   userFid INT,
   recipeFid INT,
   UNIQUE KEY userFidRecipeFid (userFid, recipeFid),
-  CONSTRAINT userFid FOREIGN KEY (userFid) REFERENCES user(id),
+  CONSTRAINT userFid FOREIGN KEY (userFid) REFERENCES client(id),
   CONSTRAINT recipeFid FOREIGN KEY (recipeFid) REFERENCES recipe(id)
 );
 

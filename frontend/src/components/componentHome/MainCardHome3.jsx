@@ -15,7 +15,9 @@ export default function MainCardHome3() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch("http://localhost:3310/api/category");
+        const response = await fetch(
+          `${import.meta.env.VITE_BACKEND_URL}/api/category`
+        );
         const data = await response.json();
 
         if (data !== null) {
