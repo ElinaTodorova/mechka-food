@@ -6,7 +6,9 @@ import styles from "./AdminPage.module.css";
 export default function RecipeContainer() {
   const [recipes, setRecipes] = useState([]);
   useEffect(() => {
-    fetch(`${import.meta.env.VITE_BACKEND_URL}/api/recipes`)
+    fetch(`${import.meta.env.VITE_BACKEND_URL}/api/recipes`, {
+      credentials: "include",
+    })
       .then((response) => response.json())
       .then((data) => setRecipes(data));
   });

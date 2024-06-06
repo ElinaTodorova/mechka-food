@@ -11,7 +11,9 @@ export default function CategoryById() {
   const idCategory = useParams();
 
   useEffect(() => {
-    fetch(`${import.meta.env.VITE_BACKEND_URL}/api/category/${idCategory.id}`)
+    fetch(`${import.meta.env.VITE_BACKEND_URL}/api/category/${idCategory.id}`, {
+      credentials: "include",
+    })
       .then((response) => response.json())
       .then((data) => {
         setCategory(data);

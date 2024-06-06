@@ -22,7 +22,9 @@ export default function SearcContainer() {
   const maxReached = value.length >= MAX_LENGTH;
 
   useEffect(() => {
-    fetch(`${import.meta.env.VITE_BACKEND_URL}/api/recipes`)
+    fetch(`${import.meta.env.VITE_BACKEND_URL}/api/recipes`, {
+      credentials: "include",
+    })
       .then((res) => res.json())
       .then((data) => setRecipe(data));
   }, []);

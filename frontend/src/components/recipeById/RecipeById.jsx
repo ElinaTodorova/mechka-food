@@ -21,13 +21,17 @@ export default function RecipeById() {
   // useEffect pour aller chercher l'id de la recette et afficher la photo, les informations (titre...)
 
   useEffect(() => {
-    fetch(`${import.meta.env.VITE_BACKEND_URL}/api/recipes/${recipeId}`)
+    fetch(`${import.meta.env.VITE_BACKEND_URL}/api/recipes/${recipeId}`, {
+      credentials: "include",
+    })
       .then((response) => response.json())
       .then((data) => setRecipes(data));
   }, []);
 
   useEffect(() => {
-    fetch(`${import.meta.env.VITE_BACKEND_URL}/api/favorites/${recipeId}`)
+    fetch(`${import.meta.env.VITE_BACKEND_URL}/api/favorites/${recipeId}`, {
+      credentials: "include",
+    })
       .then((response) => response.json())
       .then((data) => setAllFav(data));
   }, []);

@@ -10,7 +10,9 @@ import styles from "./Category.module.css";
 export default function Category() {
   const [categories, setCategories] = useState([]);
   useEffect(() => {
-    fetch(`${import.meta.env.VITE_BACKEND_URL}/api/category`)
+    fetch(`${import.meta.env.VITE_BACKEND_URL}/api/category`, {
+      credentials: "include",
+    })
       .then((response) => response.json())
       .then((data) => setCategories(data));
   }, []);

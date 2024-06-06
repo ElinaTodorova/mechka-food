@@ -93,6 +93,7 @@ export default function InscriptionComponent() {
         `${import.meta.env.VITE_BACKEND_URL}/api/user`,
         {
           method: "post",
+          credentials: "include",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
             username,

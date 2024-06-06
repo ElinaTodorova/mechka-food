@@ -23,7 +23,9 @@ export default function ProfilComponent() {
       userData.user.id
     }`;
 
-    fetch(apiUrl)
+    fetch(apiUrl, {
+      credentials: "include",
+    })
       .then((response) => response.json())
       .then((data) => {
         setRecipes(data);

@@ -83,7 +83,10 @@ export default function AddRecipeForm() {
     const fetchDataCategories = async () => {
       try {
         const response = await fetch(
-          `${import.meta.env.VITE_BACKEND_URL}/api/category`
+          `${import.meta.env.VITE_BACKEND_URL}/api/category`,
+          {
+            credentials: "include",
+          }
         );
         const data = await response.json();
 
