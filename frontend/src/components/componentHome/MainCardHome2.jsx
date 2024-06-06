@@ -16,7 +16,10 @@ export default function MainCardHome2() {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          `${import.meta.env.VITE_BACKEND_URL}/api/recipes`
+          `${import.meta.env.VITE_BACKEND_URL}/api/recipes`,
+          {
+            credentials: "include",
+          }
         );
         const data = await response.json();
 

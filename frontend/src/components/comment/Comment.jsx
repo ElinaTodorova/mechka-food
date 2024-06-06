@@ -61,7 +61,9 @@ export default function Comment() {
   const idRecipe = useParams();
 
   useEffect(() => {
-    fetch(`${import.meta.env.VITE_BACKEND_URL}/api/recipes/${idRecipe.id}`)
+    fetch(`${import.meta.env.VITE_BACKEND_URL}/api/recipes/${idRecipe.id}`, {
+      credentials: "include",
+    })
       .then((response) => response.json())
       .then((data) => setRecipeImage(data.image_url));
   }, []);

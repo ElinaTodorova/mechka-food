@@ -6,7 +6,9 @@ import styles from "./AdminUserPage.module.css";
 export default function AdminUserPage() {
   const [users, setUsers] = useState([]);
   useEffect(() => {
-    fetch(`${import.meta.env.VITE_BACKEND_URL}/api/user`)
+    fetch(`${import.meta.env.VITE_BACKEND_URL}/api/user`, {
+      credentials: "include",
+    })
       .then((response) => response.json())
       .then((data) => setUsers(data));
   });

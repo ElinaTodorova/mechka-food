@@ -36,7 +36,10 @@ export default function UpdateRecipe() {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          `${import.meta.env.VITE_BACKEND_URL}/api/recipes/${id}`
+          `${import.meta.env.VITE_BACKEND_URL}/api/recipes/${id}`,
+          {
+            credentials: "include",
+          }
         );
         const data = await response.json();
 
@@ -53,7 +56,10 @@ export default function UpdateRecipe() {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          `${import.meta.env.VITE_BACKEND_URL}/api//recipes/instructions/${id}`
+          `${import.meta.env.VITE_BACKEND_URL}/api//recipes/instructions/${id}`,
+          {
+            credentials: "include",
+          }
         );
         const data = await response.json();
 
@@ -72,7 +78,10 @@ export default function UpdateRecipe() {
         const response = await fetch(
           `${
             import.meta.env.VITE_BACKEND_URL
-          }/api/recipes/recipeIngredient/${id}`
+          }/api/recipes/recipeIngredient/${id}`,
+          {
+            credentials: "include",
+          }
         );
         const data = await response.json();
 
@@ -89,7 +98,10 @@ export default function UpdateRecipe() {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          `${import.meta.env.VITE_BACKEND_URL}/api/recipes/ingredients`
+          `${import.meta.env.VITE_BACKEND_URL}/api/recipes/ingredients`,
+          {
+            credentials: "include",
+          }
         );
         const data = await response.json();
 

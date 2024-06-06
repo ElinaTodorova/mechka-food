@@ -17,7 +17,9 @@ export default function CommentsByIdRecipe() {
   const user = useUserContext();
 
   useEffect(() => {
-    fetch(`${import.meta.env.VITE_BACKEND_URL}/api/recipes/${id}/comment`)
+    fetch(`${import.meta.env.VITE_BACKEND_URL}/api/recipes/${id}/comment`, {
+      credentials: "include",
+    })
       .then((response) => response.json())
       .then((data) => {
         setComments(data);
