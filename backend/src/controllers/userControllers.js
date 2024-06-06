@@ -4,7 +4,7 @@ const tables = require("../tables");
 const browse = async (req, res, next) => {
   try {
     // Fetch all items from the database
-    const users = await tables.user.readAllUsers();
+    const users = await tables.client.readAllUsers();
 
     // Respond with the items in JSON format
     res.json(users);
@@ -21,7 +21,7 @@ const add = async (req, res, next) => {
   try {
     // Insert the user into the database
 
-    const user = await tables.user.readByEmail(dataUser.email);
+    const user = await tables.client.readByEmail(dataUser.email);
 
     if (user !== undefined) {
       res.status(400).json("Email déjà utilisé");
@@ -40,7 +40,7 @@ const add = async (req, res, next) => {
 const deleteById = async (req, res, next) => {
   try {
     // Delete the item from the database
-    await tables.user.DeletyeById(req.params.id);
+    await tables.client.DeletyeById(req.params.id);
 
     // Respond with HTTP 204 (No Content)
     res.sendStatus(204);

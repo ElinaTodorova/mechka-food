@@ -28,7 +28,7 @@ const recipeIngredientControllers = require("./controllers/recipeIngredientContr
 
 // Route to get a list of items
 router.get("/items", itemControllers.browse);
-router.get("  ", recipeControllers.browse);
+router.get("/recipes", recipeControllers.browse);
 router.get("/recipes/ingredients", ingredientControllers.browse);
 
 // Route to get a specific item by ID
